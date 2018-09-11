@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-void train_unet_segmenter(char *datacfg, char *cfgfile, char *weightfile, int *gpus, int ngpus, int clear, int display)
+void train_unet(char *datacfg, char *cfgfile, char *weightfile, int *gpus, int ngpus, int clear, int display)
 {
     int i;
 
@@ -109,7 +109,7 @@ if(ngpus == 1){
     free_list(plist);
     free(base);
 }
-void predict_unet_segmenter()
+void predict_unet()
 {
     srand(2222222);
     DIR *dir;
@@ -153,7 +153,7 @@ void predict_unet_segmenter()
         perror ("");
     }
 }
-void run_unet_segmenter(int argc, char **argv)
+void run_unet(int argc, char **argv)
 {
     if(argc < 2){
         fprintf(stderr, "usage: %s %s [train/test/valid] [cfg] [weights (optional)]\n", argv[0], argv[1]);
